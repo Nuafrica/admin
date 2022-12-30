@@ -1,0 +1,117 @@
+.product-detail-container{
+    display: flex;
+   gap: 40px;
+   margin: 40px;
+   margin-top: 60px;
+   color: #324d67;
+  
+  }
+  
+  .product-detail-image{
+    border-radius: 15px;
+     background-color: #ebebeb00;
+  
+    width: 400px;
+    height: 400px;
+    cursor: pointer;
+    transition: .3s ease-in-out;
+  }
+
+  .small-images-container{
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+
+    .delete-iconn{
+    background: #f02d34;
+    cursor: pointer;
+    color: #b1bbc5;
+    padding: 6px;
+    border-radius: 50%;
+    }
+   .edit-icon{
+    background: #055358;
+    cursor: pointer;
+    color: #13fc0b;
+    padding: 6px;
+    border-radius: 50%;
+  }
+
+  }
+  .small-image{
+    border-radius: 8px;
+    background-color: #ebebeb;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+  }
+  
+  .selected-image{
+    background-color:#eaebe527;
+    border: 1px solid var(--primary-color);
+  }
+  .reviews{
+    color: #f02d34;
+    margin-top: 10px;
+    display: flex;
+    gap: 5px;
+    align-items: center;
+  }
+  
+  .product-detail-desc h4{
+    margin-top: 10px;
+  }
+  .product-detail-desc p{
+    margin-top: 10px;
+  }
+  .reviews p{
+    color: #324d67;
+    margin-top: 0px;
+  }
+  .product-detail-desc .price{
+    font-weight: 700 ;
+    font-family: var(--font-base-primary);
+    font-size: 20px;
+    margin-top: 30px;
+    color: var(--primary-color);
+  }
+  .price .old-price, .product-price .old-price, .price .old-price{
+    color: gray;
+    text-decoration: line-through;
+  }
+  .product-detail-desc .quantity{
+    display: flex;
+    gap: 20px;
+    margin-top: 10px ;
+    align-items: center;
+  }
+
+  @media screen and (max-width: 900px) {
+   .buttons{
+    display: flex;
+    flex-direction:column;
+    margin-top: 0px;
+   
+   }
+}
+
+  .product-detail-desc .buttons{
+    display: flex;
+    gap: 30px;
+  }
+  .buttons .add-to-cart{
+    padding: 7px 30px;
+    
+    margin-top: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    background-color: white;
+    color: var(--secondary-color);
+    cursor: pointer;
+    width: 200px;
+    transform: scale(1, 1);
+    transition: transform 0.5s ease;
+
+
+
+  }
