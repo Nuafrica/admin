@@ -308,7 +308,7 @@ const Dashboard = () => {
       </Box>
     </Box> : 
     
-    <h3> Nu africa Admin panel</h3>
+    <h3> Nu africa Admin </h3>
     }
  
   </>
