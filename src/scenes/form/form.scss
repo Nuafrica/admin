@@ -37,3 +37,23 @@ flex-direction: row;
     }
    }
  
+.customizer-main{
+  display: flex;
+  flex-direction: row;
+  .customizer1-container{
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgb(37, 179, 153);
+    border-radius: 6px;
+    padding: 20px;
+    margin-left: 20px;
+
+
+    .customizer1-categories{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20px;
+    }
+   }
+}
+  

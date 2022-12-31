@@ -20,10 +20,17 @@ const [productdiscount, setProductdiscount] = useState (state?.productdiscount |
 const [productavailibility, setProductavailibility] = useState(state?.productavailibility ||""); 
 
 const [backgoundColor, setBackgoundColor] = useState(""); 
+
 const [textmedium, setTextmedium] = useState(""); 
 const [textSmall, setTextSmall] = useState(""); 
 const [textPrice, setTextPrice] = useState(""); 
 const [productImage, setProductImage] = useState(""); 
+
+const [backgoundColor1, setBackgoundColor1] = useState("");
+const [textmedium1, setTextmedium1] = useState(""); 
+const [productImage1, setProductImage1] = useState(""); 
+const [textSmall1, setTextSmall1] = useState(""); 
+const [textPrice1, setTextPrice1] = useState(""); 
 
  
 const navigate = useNavigate()
@@ -77,6 +84,26 @@ const navigate = useNavigate()
       textSmall,
       textPrice,
       productImage,
+      });
+      navigate("/")
+          
+    } catch (error) {
+      navigate("/form")
+      console.error(error.response.data);
+    }
+  };
+
+
+  const eClick1 = async (e) => {
+    e.preventDefault();
+  
+    try {
+    await axios.post(`/posts/styles1`,{
+      backgoundColor1,
+      textmedium1,
+      textSmall1,
+      textPrice1,
+      productImage1,
       });
       navigate("/")
           
@@ -168,10 +195,14 @@ onClick={handleClick}>
 </Box>
 
 <Box m="20px">
-<Header title="Customizer - 1" subtitle="Customize" />
+<Header title="Customizer portal" subtitle="Meant to  publish producs on promotion" />
+<div className="customizer-main">
 
+<div className="customizer1-container">
+
+<div className="customizer1-form">
 <form   className="form-container"  action="">
-
+<Header title="Daily Deal Customizer"/>
 <input type="text" value={backgoundColor} placeholder="BackgoundColor"   onChange={e=>setBackgoundColor(e.target.value)}/>
 <input type="text" value={textmedium} placeholder="TextMedium"  onChange={e=>setTextmedium(e.target.value)}/>
 
@@ -186,6 +217,71 @@ onClick={eClick}>
 </button>
 
 </form>
+</div>
+<div className="customizer1-categories">
+
+</div>
+</div>
+
+
+
+
+
+
+<div className="customizer1-container">
+<div className="customizer1-form">
+<form   className="form-container"  action="">
+<Header title="Daily Deal Customizer"/>
+<input type="text" value={backgoundColor1} placeholder="BackgoundColor"   onChange={e=>setBackgoundColor1(e.target.value)}/>
+<input type="text" value={textmedium1} placeholder="TextMedium"  onChange={e=>setTextmedium1(e.target.value)}/>
+
+<input type="text"value={textSmall1}  placeholder="TextSmall" onChange={e=>setTextSmall1(e.target.value)}/>
+<input type="text"value={textPrice1}  placeholder="textPrice"  onChange={e=>setTextPrice1(e.target.value)}/>
+<input type="text" value={productImage1} placeholder="productImage"  onChange={e=>setProductImage1(e.target.value)}/>
+
+
+<button className="productsbtn"
+onClick={eClick1}>
+  Save
+</button>
+
+</form>
+</div>
+<div className="customizer1-categories">
+
+
+</div>
+</div>
+
+
+
+<div className="customizer1-container">
+<div className="customizer1-form">
+<form   className="form-container"  action="">
+<Header title="Best selling Customizer"/>
+<input type="text" value={backgoundColor} placeholder="BackgoundColor"   onChange={e=>setBackgoundColor(e.target.value)}/>
+<input type="text" value={textmedium} placeholder="TextMedium"  onChange={e=>setTextmedium(e.target.value)}/>
+
+<input type="text"value={textSmall}  placeholder="TextSmall" onChange={e=>setTextSmall(e.target.value)}/>
+<input type="text"value={textPrice}  placeholder="textPrice"  onChange={e=>setTextPrice(e.target.value)}/>
+<input type="text" value={productImage} placeholder="productImage"  onChange={e=>setProductImage(e.target.value)}/>
+
+
+<button className="productsbtn"
+onClick={eClick}>
+  Save
+</button>
+
+</form>
+</div>
+<div className="customizer1-categories">
+
+
+</div>
+</div>
+
+</div>
+
 </Box>
 </>
    
