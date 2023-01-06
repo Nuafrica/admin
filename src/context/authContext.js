@@ -14,7 +14,7 @@ export const AuthContexProvider = ({ children }) => {
   };
 
   const logout = async (inputs) => {
-    await axios.post("http://server.nuafricacashandcarry.co.bw/adminauth/logout");
+    await axios.post("https://server.nuafricacashandcarry.co.bw/adminauth/logout");
     setCurrentUser(null);
   };
 
