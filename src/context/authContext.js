@@ -9,12 +9,12 @@ export const AuthContexProvider = ({ children }) => {
   );
 
   const login = async (inputs) => {
-    const res = await axios.post("/adminauth/login", inputs);
+    const res = await axios.post("http://server.nuafricacashandcarry.co.bw/adminauth/login", inputs);
     setCurrentUser(res.data);
   };
 
   const logout = async (inputs) => {
-    await axios.post("/adminauth/logout");
+    await axios.post("http://server.nuafricacashandcarry.co.bw/adminauth/logout");
     setCurrentUser(null);
   };
 
