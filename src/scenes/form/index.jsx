@@ -18,6 +18,7 @@ const [cat,setCat] = useState( state?.cat || "");
 const [productprice,setProductprice] = useState( state?.productprice ||"");
 const [productdiscount, setProductdiscount] = useState (state?.productdiscount || ""); 
 const [productavailibility, setProductavailibility] = useState(state?.productavailibility ||""); 
+const [featured, setFeatured] = useState(state?.featured ||""); 
 
 const [backgoundColor, setBackgoundColor] = useState(""); 
 
@@ -31,6 +32,12 @@ const [textmedium1, setTextmedium1] = useState("");
 const [productImage1, setProductImage1] = useState(""); 
 const [textSmall1, setTextSmall1] = useState(""); 
 const [textPrice1, setTextPrice1] = useState(""); 
+
+const [backgoundColor2, setBackgoundColor2] = useState("");
+const [textmedium2, setTextmedium2] = useState(""); 
+const [productImage2, setProductImage2] = useState(""); 
+const [textSmall2, setTextSmall2] = useState(""); 
+const [textPrice2, setTextPrice2] = useState(""); 
 
  
 const navigate = useNavigate()
@@ -51,6 +58,7 @@ const navigate = useNavigate()
         productdiscount,
         productavailibility,
         cat,
+        featured,
         file,
         })
        
@@ -61,6 +69,7 @@ const navigate = useNavigate()
       productdiscount,
       productavailibility,
       cat,
+      featured,
       file,
       date: moment(Date.now()).format("YYYY-MM-DD HH:mm:ss"),
       });
@@ -104,6 +113,25 @@ const navigate = useNavigate()
       textSmall1,
       textPrice1,
       productImage1,
+      });
+      navigate("/")
+          
+    } catch (error) {
+      navigate("/form")
+      console.error(error.response.data);
+    }
+  };
+
+  const eClick2 = async (e) => {
+    e.preventDefault();
+  
+    try {
+    await axios.post(`/posts/styles2`,{
+      backgoundColor2,
+      textmedium2,
+      textSmall2,
+      textPrice2,
+      productImage2,
       });
       navigate("/")
           
@@ -177,6 +205,7 @@ onChange={(e) => setCat(e.target.value)}/>
 </div>
 
 <input type="text" value={productpost} placeholder="product name"   onChange={e=>setProductpost(e.target.value)}/>
+<input type="text" value={featured} placeholder="Featured or not (optional)"   onChange={e=>setFeatured(e.target.value)}/>
 <input type="text" value={productprice} placeholder="product price"  onChange={e=>setProductprice(e.target.value)}/>
 
 <input type="text"value={value}  placeholder="product description" onChange={e=>setValue(e.target.value)}/>
@@ -259,16 +288,16 @@ onClick={eClick1}>
 <div className="customizer1-form">
 <form   className="form-container"  action="">
 <Header title="Best selling Customizer"/>
-<input type="text" value={backgoundColor} placeholder="BackgoundColor"   onChange={e=>setBackgoundColor(e.target.value)}/>
-<input type="text" value={textmedium} placeholder="TextMedium"  onChange={e=>setTextmedium(e.target.value)}/>
+<input type="text" value={backgoundColor2} placeholder="BackgoundColor"   onChange={e=>setBackgoundColor2(e.target.value)}/>
+<input type="text" value={textmedium2} placeholder="TextMedium"  onChange={e=>setTextmedium2(e.target.value)}/>
 
-<input type="text"value={textSmall}  placeholder="TextSmall" onChange={e=>setTextSmall(e.target.value)}/>
-<input type="text"value={textPrice}  placeholder="textPrice"  onChange={e=>setTextPrice(e.target.value)}/>
-<input type="text" value={productImage} placeholder="productImage"  onChange={e=>setProductImage(e.target.value)}/>
+<input type="text"value={textSmall2}  placeholder="TextSmall" onChange={e=>setTextSmall2(e.target.value)}/>
+<input type="text"value={textPrice2}  placeholder="textPrice"  onChange={e=>setTextPrice2(e.target.value)}/>
+<input type="text" value={productImage2} placeholder="productImage"  onChange={e=>setProductImage2(e.target.value)}/>
 
 
 <button className="productsbtn"
-onClick={eClick}>
+onClick={eClick2}>
   Save
 </button>
 

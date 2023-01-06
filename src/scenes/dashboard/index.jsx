@@ -16,19 +16,17 @@ import { AuthContext } from "../../context/authContext";
 import { useContext,useEffect,useState } from "react";
 import axios from "axios";
 
-const Dashboard = () => {
+  const Dashboard = () => {
   const theme = useTheme();
   const colors = tokens(theme.palette.mode);
   const [users,setUsers] = useState([]);
+  const [blogs,setBlogs] = useState([]);
 
 
   useEffect(() => {
-
     const datafecth = async () => {
       try{
       const res = await axios.get('/users')
-
-      
       setUsers(res.data);
       console.log(res.data)
       }catch(err){
@@ -39,8 +37,19 @@ const Dashboard = () => {
   }, [])
   
 
-
-
+  useEffect(() => {
+    const datafecth = async () => {
+      try{
+      const res = await axios.get('/posts/blogstotal/')
+      setBlogs(res.data);
+      console.log('total num',res.data)
+      }catch(err){
+      console.log(' it is',err);
+     }
+    };
+    datafecth();
+  }, [])
+  
 
   const { currentUser,login,logout } = useContext(AuthContext);
   return (
@@ -83,17 +92,12 @@ const Dashboard = () => {
           alignItems="center"
           justifyContent="center"
         >
-          <StatBox
-            title={0}
-            subtitle="Blog Posts"
-            progress="0"
-            increase="0%"
-            icon={
-              <EmailIcon
-                sx={{ color: colors.greenAccent[600], fontSize: "26px" }}
-              />
-            }
-          />
+       <div>
+        
+        <h2>{''}</h2>
+       </div>
+    
+          {console.log('main console',blogs)}
         </Box>
         <Box
           gridColumn="span 3"
